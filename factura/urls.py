@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from app.views import registrarVenta, darFactura, anularFactura
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('registrar',registrarVenta),
+    path('darFactura/<int:idFactura>',darFactura),
+    path('anular/<int:idFactura>',anularFactura)
 ]

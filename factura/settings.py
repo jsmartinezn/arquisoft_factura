@@ -23,9 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^g^p!y(4!*f*o%acv^6t!lxcs!u9sp_3!3ceobynn#0cmny8f@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '192.168.0.17'
+]
 
 
 # Application definition
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app'
 ]
 
 MIDDLEWARE = [
@@ -75,11 +78,8 @@ WSGI_APPLICATION = 'factura.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'docdb-2019-12-02-21-50-11',
-        'HOST' : 'mongodb://sebastian:sebastian2608@docdb-2019-12-02-21-50-11.c5u0gxzeteg0.us-east-1.docdb.amazonaws.com:27017/?ssl=true&ssl_ca_certs=rds-combined-ca-bundle.pem',
-        'USER': "sebastian",
-        'PASSWORD' : 'sebastian2608'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
